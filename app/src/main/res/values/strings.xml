@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RingGo/Cobalt/ParkNow Vehicle Viewer</string>
+    <string name="connection_error_message">We were unable to retrieve the Data</string>
+    <string name="okay">Okay</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="please_wait">Please Wait...</string>
+    <string name="vehicle_details">Vehicle Details</string>
+</resources>
