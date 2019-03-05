@@ -19,7 +19,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String VEHICLE_DETAILS = "com.example.benjaminjones.VEHICLE_DETAILS";
+    public static final String VEHICLE_DETAILS = "com.example.ringgo_example.VEHICLE_DETAILS";
     public static VehiclesResponse sVehiclesResponse;
 
     private Retrofit retrofit;

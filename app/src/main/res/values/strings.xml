@@ -6,4 +6,9 @@
     <string name="retry">Retry</string>
     <string name="please_wait">Please Wait...</string>
     <string name="vehicle_details">Vehicle Details</string>
+    <string name="vehicle_vrn">VRN</string>
+    <string name="vehicle_country">Country</string>
+    <string name="vehicle_colour">Colour</string>
+    <string name="vehicle_type">Type</string>
+    <string name="vehicle_is_default">Is Default</string>
 </resources>

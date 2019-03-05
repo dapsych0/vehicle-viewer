@@ -17,8 +17,7 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
     private final List<Vehicle> mVehiclesList;
     private LayoutInflater mInflater;
 
-    public VehicleListAdapter(Context context,
-                              List<Vehicle> vehiclesList) {
+    public VehicleListAdapter(Context context, List<Vehicle> vehiclesList) {
         mInflater = LayoutInflater.from(context);
         this.mVehiclesList = vehiclesList;
     }
@@ -47,7 +46,7 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
 
         public VehicleViewHolder(View itemView, VehicleListAdapter adapter) {
             super(itemView);
-            wordItemView = itemView.findViewById(R.id.word);
+            wordItemView = itemView.findViewById(R.id.listItemText);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
         }
