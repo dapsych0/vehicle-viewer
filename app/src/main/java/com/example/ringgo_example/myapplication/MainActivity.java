@@ -14,11 +14,14 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.HttpException;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity
+        extends AppCompatActivity
+        implements ConnectionErrorDialogFragment.ConnectionErrorDialogListener {
     public static final String VEHICLE_DETAILS = "com.example.ringgo_example.VEHICLE_DETAILS";
     public static VehiclesResponse sVehiclesResponse;
 
@@ -65,22 +68,26 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(Throwable e) {
                         // cast to retrofit.HttpException to get the response code
-                        //if (e instanceof HttpException) {
-                            /*HttpException response = (HttpException)e;
-                            int code = response.code();*/
+                        if (e instanceof HttpException) {
+                            HttpException response = (HttpException)e;
 
                             DialogFragment newFragment = new ConnectionErrorDialogFragment();
                             newFragment.show(getSupportFragmentManager(), "connection_error");
-                            newFragment.getDialog().setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialogInterface) {
-                                    //do whatever you want when dialog is dismissed
-                                }
-                            });
-                        //}
+                        }
                     }
                 });
 
         api.getVehicles();
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        this.getVehicles();
+        // User touched the dialog's positive button
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        // User touched the dialog's negative button
     }
 }

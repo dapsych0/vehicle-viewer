@@ -25,7 +25,8 @@ public class DisplayVehiclesActivity extends AppCompatActivity {
         mAdapter = new VehicleListAdapter(this, mVehiclesResponse.vehicles);
 
         TextView mListTitle = findViewById(R.id.vehicleListTitle);
-        mListTitle.setText("Showing " + mVehiclesResponse.count + " Vehicles");
+        String mListTitleText = getString(R.string.showing_x_vehicles, mVehiclesResponse.count);
+        mListTitle.setText(mListTitleText);
 
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
