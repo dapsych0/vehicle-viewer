@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ringgo_example.myapplication.models.Vehicle;
@@ -31,8 +32,11 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull VehicleListAdapter.VehicleViewHolder vehicleHolder, int position) {
-        String mCurrent = mVehiclesList.get(position).vrn;
-        vehicleHolder.wordItemView.setText(mCurrent);
+        Vehicle mCurrentItem = mVehiclesList.get(position);
+        vehicleHolder.wordItemView.setText(mCurrentItem.vrn);
+        if (mCurrentItem._default) {
+            vehicleHolder.defaultItemStar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -42,11 +46,13 @@ public class VehicleListAdapter extends RecyclerView.Adapter<VehicleListAdapter.
 
     class VehicleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView wordItemView;
+        public final ImageView defaultItemStar;
         final VehicleListAdapter mAdapter;
 
         public VehicleViewHolder(View itemView, VehicleListAdapter adapter) {
             super(itemView);
             wordItemView = itemView.findViewById(R.id.listItemText);
+            defaultItemStar = itemView.findViewById(R.id.imageView);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
         }
